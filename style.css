@@ -1,0 +1,152 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:linear-gradient(rgb(13, 142, 202),rgb(28, 179, 73));
+    background-size: cover;
+    background-attachment: fixed;
+
+    cursor: url('resize-17387405211125637947tom.png'), auto,;
+
+    overflow: hidden;
+    
+    
+}
+
+.main{
+    height: 90vh;
+    width: 90vw;
+    background:url(./34687.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 10px;
+    
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+
+
+    
+}
+
+.tools{
+    height: 20%;
+    background-color:transparent;
+    display: flex;
+    
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.tools img{
+  
+    top: 5px;
+    left: 150px;
+}
+.scoreboard{
+    display: flex;
+   z-index: 2;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    color: white;
+    font-family: sans-serif;
+}
+#holes{
+    width: 100%;
+  margin-top: 30px;
+    display: flex;
+
+    justify-content: center;
+    justify-content: space-around;
+    position: relative;
+    padding: 20px;
+}
+.hole{
+    height: 100px;
+    width: 100px;
+
+    background-color: transparent;
+    margin: 10px;
+        border-radius: 50%;
+    margin-top: 30px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 20px rgb(4, 1, 37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: sans-serif;
+border: 5px solid white;
+   position: relative;
+   z-index: 2;
+    
+}
+.mole{
+    z-index: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 0.5s;
+    transform: scale(0);
+    transform: translateY(60px);
+    display: none;
+}
+
+.spike{
+    z-index: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    width: 100px;
+    height: 100px;
+    
+    position: absolute;
+    
+    border-radius: 50%;
+    transition: all 0.5s;
+    transform: scale(0);
+    transform: translateY(3px);
+    display: none;
+}
+.cnts{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    color: white;
+}
+#spk{
+    color: red;
+}
+.cnts button{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    border: none;
+    background-color: rgb(81, 255, 0);
+    font-family: sans-serif;
+    font-size:large;
+    
+}
+
+.tom{
+    position: absolute;
+    height: 100px ;
+    width: 100px;
+    z-index: 5;
+}

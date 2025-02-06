@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole</title>
+    <style>
+        .hole {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            margin: 10px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .mole {
+            width: 100px;
+            height: 100px;
+            background-color: #5c4033;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            display: none;
+        }
+
+        .scoreboard {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Whack-a-Mole</h1>
+    <div id="holes">
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+        <div class="hole"><div class="mole"></div></div>
+    </div>
+    <div class="scoreboard">Score: <span id="score">0</span></div>
+
+    <script>
+        // Setup
+        let score = 0;
+        const moles = document.querySelectorAll('.mole'); // All the mole elements
+        const scoreDisplay = document.getElementById('score'); // Score display
+        const holes = document.querySelectorAll('.hole'); // All the hole elements
+
+        // Show a random mole in a random hole
+        function showRandomMole() {
+            // Hide all moles
+            moles.forEach(mole => mole.style.display = 'none');
+            
+            // Pick a random hole
+            const randomHole = holes[Math.floor(Math.random() * holes.length)];
+            
+            // Show the mole inside the random hole
+            const mole = randomHole.querySelector('.mole');
+            mole.style.display = 'block';
+        }
+
+        // When a mole is clicked, increase the score
+        function whackMole() {
+            score++; // Increase score
+            scoreDisplay.textContent = 'Score: ' + score; // Update score on the page
+        }
+
+        // Add click event listeners directly to each mole
+        moles.forEach(mole => {
+            mole.addEventListener('click', whackMole);
+        });
+
+        // Set up the game to show a mole every 1 second
+        setInterval(showRandomMole, 1000);
+    </script>
+</body>
+</html>

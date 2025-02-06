@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <img src="./tom.png" alt="" class="tom" id="tom">
+
+        <div class="tools">
+
+            <img src="./pngwing.com (6).png" alt="" height="150px" width="150px">
+            <div class="scoreboard">
+                <img src="tom.png" alt="" height="50px" width="50px">
+                <h1 id="score">0</h1>
+            </div>
+
+         
+
+            <div class="scoreboard">
+                <img src="./warn.png" alt="" height="50px" width="50px">
+                <h1 id="spk">0</h1>
+            </div>
+
+        </div>
+        <div id="holes">
+
+
+
+            <div class="hgrp">
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com (1).png" alt="" class="mole">
+                </div>
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com (4).png" alt="" class="mole">
+                </div>
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com (3).png" alt="" class="mole">
+                </div>
+            </div>
+            <div class="hgrp">
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com.png" alt="" class="mole">
+                </div>
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com (4).png" alt="" class="mole">
+                </div>
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com (3).png" alt="" class="mole">
+                </div>
+            </div>
+            <div class="hgrp">
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com.png" alt="" class="mole">
+                </div>
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com (1).png" alt="" class="mole">
+                </div>
+                <div class="hole">
+                    <img src="./spikedog.png" alt="" class="spike">
+                    <img src="./pngwing.com.png" alt="" class="mole">
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let holes = document.querySelectorAll(".hole");
+        let holebar = document.querySelectorAll(".holes");
+        let moles = document.querySelectorAll(".mole");
+
+        let sc = document.getElementById('score');
+        let sc2 = document.getElementById('score2');
+        let tom = document.getElementById("tom");
+        let spki = document.querySelectorAll(".spike");
+        let spkiyScore = document.getElementById("spk");
+
+        window.addEventListener("mousemove", function (ele) {
+          //  console.log(ele)
+
+            gsap.to("#tom", {
+
+                x: ele.clientX,
+
+            })
+
+
+            gsap.to("#tom", {
+
+
+                y: ele.clientY,
+
+            })
+
+
+        })
+
+        function holemole() {
+            moles.forEach(function (e) {
+                e.style = "opacity:;  transform: translateY(60px)"
+            })
+
+
+            spki.forEach(function (e) {
+                e.style = "opacity:;  transform: translateY(60px)"
+            })
+
+
+            let rand = holes[Math.floor(Math.random() * 9)];
+
+            let amole = rand.querySelector(".mole");
+            let aspike = rand.querySelector(".spike");
+            let array2 = [amole, aspike];
+            let getrandomly = array2[Math.floor(Math.random() * 2)];
+            console.log(getrandomly)
+
+            getrandomly.style = " transform:translateY(-40px); display:block";
+
+        }
+
+        function playgame() {
+            moles.forEach(function (e) {
+                let clk = e.addEventListener("click", function () {
+                    sc.innerText++
+                    e.style = "display:none"
+
+
+                })
+
+
+
+
+            })
+
+            spki.forEach(function (ele) {
+            ele.addEventListener("click", function () {
+                  console.log(ele,"doneeeee")
+                  spkiyScore.innerText++;
+                    ele.style = "display:none"
+
+
+                })
+
+
+
+
+            })
+
+
+
+
+        }
+
+
+
+
+
+
+        playgame();
+
+
+
+        setInterval(holemole, 1000);
+
+
+
+
+        setInterval(function () {
+        
+
+            if (spkiyScore.innerText >= 3) {
+               
+
+                document.getElementById("holes").innerHTML = ` <div class="cnts"> <div><H1>GAME OVER </H1></div> 
+                <div><p>Your total Score :${sc.innerText} </p>    </div> 
+                
+
+<button onclick="window.location.reload()">Restart</button>
+</div>
+                `;
+
+            }
+        }, 900)
+
+
+    </script>
+
+</body>
+
+</html>
